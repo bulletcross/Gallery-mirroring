@@ -23,9 +23,9 @@ class MainActivity : AppCompatActivity() {
                     .setAction("Action", null).show()
         }
 
-    // Example of a call to a native method
-    val tv = findViewById(R.id.sample_text) as TextView
-    tv.text = stringFromJNI()
+        // Example of a call to a native method
+        val tv = findViewById(R.id.sample_text) as TextView
+        tv.text = stringFromJNI()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -54,7 +54,8 @@ class MainActivity : AppCompatActivity() {
     public native String stringFromJNI();
 
     // Used to load the 'native-lib' library on application startup.
-    static {
+    static
+    {
         System.loadLibrary("native-lib");
     }
 }
