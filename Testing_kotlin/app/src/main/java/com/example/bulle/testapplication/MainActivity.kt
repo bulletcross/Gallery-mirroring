@@ -16,16 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
-
-        val fab = findViewById(R.id.fab) as FloatingActionButton
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
-
-        // Example of a call to a native method
-        val tv = findViewById(R.id.sample_text) as TextView
-        tv.text = stringFromJNI()
+        button.setOnClickListener{toast("Starting mirroring in a while....")}
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -47,15 +38,4 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
-    public native String stringFromJNI();
-
-    // Used to load the 'native-lib' library on application startup.
-    static
-    {
-        System.loadLibrary("native-lib");
-    }
 }
